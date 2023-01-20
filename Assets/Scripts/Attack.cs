@@ -10,11 +10,27 @@ public class Attack : MonoBehaviour
     [SerializeField] private float fireRate = 0.5f;
     private float currentFireRate = 0f;
     private bool switchGun = false;
-    private int ammoCount = 5;
+    [SerializeField] private int maxAmmoCount = 5;
+    private int currentAmmoCount;
+    public int GetAmmo
+    {
+        get
+        {
+            return currentAmmoCount;
+        }
+        set
+        {
+            currentAmmoCount = value;
+            if (currentAmmoCount > maxAmmoCount)
+            {
+                currentAmmoCount = maxAmmoCount;
+            }
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
-
+        currentAmmoCount = maxAmmoCount;
     }
 
     // Update is called once per frame
@@ -25,7 +41,7 @@ public class Attack : MonoBehaviour
             currentFireRate -= Time.deltaTime;
         }
 
-        if (Input.GetMouseButtonDown(0) && currentFireRate <= 0 && ammoCount > 0)
+        if (Input.GetMouseButtonDown(0) && currentFireRate <= 0 && currentAmmoCount > 0)
         {
             Fire(switchGun);
             switchGun = !switchGun;
@@ -34,15 +50,16 @@ public class Attack : MonoBehaviour
 
     private void Fire(bool switchGun)
     {
-        ammoCount--;
+        currentAmmoCount--;
         currentFireRate = fireRate;
         if (switchGun)
         {
-            Instantiate(ammo, fireTransform1.position, fireTransform1.rotation);
+            GameObject bulletClone = Instantiate(ammo, fireTransform1.position, fireTransform1.rotation);
+            bulletClone.GetComponent<Bullet>().owner = gameObject;
             return;
         }
-        Instantiate(ammo, fireTransform2.position, fireTransform2.rotation);
-
+        GameObject bulletClone2 = Instantiate(ammo, fireTransform2.position, fireTransform2.rotation);
+        bulletClone2.GetComponent<Bullet>().owner = gameObject;
 
     }
 }
