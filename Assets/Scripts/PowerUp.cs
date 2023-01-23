@@ -12,6 +12,7 @@ public class PowerUp : MonoBehaviour
     public int ammoAmount = 5;
     [Header("Transform settings")]
     [SerializeField] private float turnSpeed = -1f;
+
     void Start()
     {
         if (healtPowerUp && ammoPowerUp)
