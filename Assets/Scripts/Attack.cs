@@ -9,9 +9,10 @@ public class Attack : MonoBehaviour
     [SerializeField] private Transform fireTransform2;
     [SerializeField] private float fireRate = 0.5f;
     private float currentFireRate = 0f;
-    private bool switchGun = false;
+    [HideInInspector] public bool switchGun = false;
     [SerializeField] private int maxAmmoCount = 5;
     private int currentAmmoCount;
+    [SerializeField] private bool isPlayer = false;
     public int GetAmmo
     {
         get
@@ -27,6 +28,15 @@ public class Attack : MonoBehaviour
             }
         }
     }
+    public int GetClipSize
+    {
+        get
+        {
+            return maxAmmoCount;
+        }
+    }
+    public float GetCurrentFireRate {  get { return currentFireRate; } set { currentFireRate = value; } }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,15 +50,23 @@ public class Attack : MonoBehaviour
         {
             currentFireRate -= Time.deltaTime;
         }
+        PlayerInput();
 
-        if (Input.GetMouseButtonDown(0) && currentFireRate <= 0 && currentAmmoCount > 0)
+    }
+
+    private void PlayerInput()
+    {
+        if (isPlayer)
         {
-            Fire(switchGun);
-            switchGun = !switchGun;
+            if (Input.GetMouseButtonDown(0) && currentFireRate <= 0 && currentAmmoCount > 0)
+            {
+                Fire(switchGun);
+                switchGun = !switchGun;
+            }
         }
     }
 
-    private void Fire(bool switchGun)
+    public void Fire(bool switchGun)
     {
         currentAmmoCount--;
         currentFireRate = fireRate;

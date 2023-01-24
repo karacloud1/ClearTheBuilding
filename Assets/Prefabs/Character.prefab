@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 21267868}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ground Check (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 587332680}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ground Check (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,9 +77,10 @@ GameObject:
   - component: {fileID: 1613794969988400370}
   - component: {fileID: 1613794969988400373}
   - component: {fileID: 4662947313345584379}
-  m_Layer: 0
+  - component: {fileID: 2064228412}
+  m_Layer: 7
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -169,10 +170,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 0.86900544
+  m_Height: 2.223354
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.18831658, y: 0.123049855, z: 0.015006423}
 --- !u!54 &1613794969988400370
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -187,7 +188,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 88
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!114 &1613794969988400373
 MonoBehaviour:
@@ -223,6 +224,23 @@ MonoBehaviour:
   ammo: {fileID: 5053479689047307145, guid: fed4192346dfd994abb60faea76d2d58, type: 3}
   fireTransform1: {fileID: 1613794970687167669}
   fireTransform2: {fileID: 2284119079443599449}
+  fireRate: 0.5
+  switchGun: 0
+  maxAmmoCount: 5
+  isPlayer: 1
+--- !u!114 &2064228412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613794969988400371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 669620910c6c820419db003804bf86e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxhealth: 5
 --- !u!1 &1613794970011197735
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +252,7 @@ GameObject:
   - component: {fileID: 1613794970011197734}
   - component: {fileID: 1613794970011197755}
   - component: {fileID: 1613794970011197752}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +335,7 @@ GameObject:
   - component: {fileID: 1613794970716558376}
   - component: {fileID: 1613794970716558381}
   - component: {fileID: 1613794970716558378}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: R_Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,7 +418,7 @@ GameObject:
   - component: {fileID: 1613794971078040826}
   - component: {fileID: 1613794971078040831}
   - component: {fileID: 1613794971078040828}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -483,7 +501,7 @@ GameObject:
   - component: {fileID: 1613794971313783960}
   - component: {fileID: 1613794971313783965}
   - component: {fileID: 1613794971313783962}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -566,7 +584,7 @@ GameObject:
   - component: {fileID: 1613794971461658155}
   - component: {fileID: 1613794971461658156}
   - component: {fileID: 1613794971461658157}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: L_Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -647,7 +665,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8715255432259629327}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ground Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -676,6 +694,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1613794969988400265}
     m_Modifications:
+    - target: {fileID: 709189168682276818, guid: e545c5131b0951346b53d1710775943a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 709189168853223347, guid: e545c5131b0951346b53d1710775943a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.682
+      objectReference: {fileID: 0}
+    - target: {fileID: 709189168853223348, guid: e545c5131b0951346b53d1710775943a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 709189169036389574, guid: e545c5131b0951346b53d1710775943a, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -724,6 +754,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gun (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 709189169036389575, guid: e545c5131b0951346b53d1710775943a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 709189169207411697, guid: e545c5131b0951346b53d1710775943a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 709189169512897554, guid: e545c5131b0951346b53d1710775943a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 709189169548129035, guid: e545c5131b0951346b53d1710775943a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 709189170073259967, guid: e545c5131b0951346b53d1710775943a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e545c5131b0951346b53d1710775943a, type: 3}
 --- !u!4 &2284119079261797164 stripped
@@ -743,6 +793,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1613794969988400265}
     m_Modifications:
+    - target: {fileID: 709189168682276818, guid: e545c5131b0951346b53d1710775943a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 709189168853223347, guid: e545c5131b0951346b53d1710775943a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.68000007
+      objectReference: {fileID: 0}
+    - target: {fileID: 709189168853223348, guid: e545c5131b0951346b53d1710775943a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 709189169036389574, guid: e545c5131b0951346b53d1710775943a, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -790,6 +852,26 @@ PrefabInstance:
     - target: {fileID: 709189169036389575, guid: e545c5131b0951346b53d1710775943a, type: 3}
       propertyPath: m_Name
       value: Gun
+      objectReference: {fileID: 0}
+    - target: {fileID: 709189169036389575, guid: e545c5131b0951346b53d1710775943a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 709189169207411697, guid: e545c5131b0951346b53d1710775943a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 709189169512897554, guid: e545c5131b0951346b53d1710775943a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 709189169548129035, guid: e545c5131b0951346b53d1710775943a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 709189170073259967, guid: e545c5131b0951346b53d1710775943a, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e545c5131b0951346b53d1710775943a, type: 3}

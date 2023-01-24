@@ -690,7 +690,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 88
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!114 &6770530919328538254
 MonoBehaviour:
@@ -708,7 +708,9 @@ MonoBehaviour:
   fireTransform1: {fileID: 803476807917362880}
   fireTransform2: {fileID: 211966243561706028}
   fireRate: 0.5
+  switchGun: 0
   maxAmmoCount: 5
+  isPlayer: 0
 --- !u!114 &6770530919328538241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,6 +740,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   speed: 5
+  turnSpeed: 15
+  shootRange: 10
+  shootLayer:
+    serializedVersion: 2
+    m_Bits: 192
+  aimTransform1: {fileID: 803476807917362880}
+  aimTransform2: {fileID: 211966243561706028}
 --- !u!1 &803476806963866232
 GameObject:
   m_ObjectHideFlags: 0
