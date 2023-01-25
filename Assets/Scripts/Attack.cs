@@ -38,7 +38,7 @@ public class Attack : MonoBehaviour
     public float GetCurrentFireRate {  get { return currentFireRate; } set { currentFireRate = value; } }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         currentAmmoCount = maxAmmoCount;
     }
@@ -63,6 +63,7 @@ public class Attack : MonoBehaviour
                 Fire(switchGun);
                 switchGun = !switchGun;
             }
+
         }
     }
 

@@ -5,7 +5,9 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     [SerializeField] private int maxhealth = 2;
-     private int currentHealth = 2;
+    private int currentHealth = 2;
+    [SerializeField] private GameObject deadFx;
+    [SerializeField] private GameObject hitFx;
     public int GetHealth
     {
         get
@@ -35,12 +37,20 @@ public class Target : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Bullet bullet = other.GetComponent<Bullet>();
-        if (bullet != null && bullet.owner != gameObject)
+        if (bullet != null && bullet.owner != gameObject && currentHealth > 0)
         {
             currentHealth--;
+            if (hitFx != null)
+            {
+                Instantiate(hitFx, transform.position, Quaternion.identity);
+            }
             Destroy(other.gameObject);
             if (currentHealth <= 0)
             {
+                if (deadFx != null)
+                {
+                    Instantiate(deadFx, transform.position, Quaternion.identity);
+                }
                 Destroy(gameObject);
             }
         }

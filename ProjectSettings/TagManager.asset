@@ -16,8 +16,8 @@ TagManager:
   - Player
   - Pickable
   - Projectile
-  - 
-  - 
+  - Enemy
+  - Object
   - 
   - 
   - 

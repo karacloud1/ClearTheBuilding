@@ -582,7 +582,7 @@ GameObject:
   - component: {fileID: 6770530919328538254}
   - component: {fileID: 6770530919328538241}
   - component: {fileID: 9060739411071847576}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -741,6 +741,7 @@ MonoBehaviour:
   - {fileID: 0}
   speed: 5
   turnSpeed: 15
+  reloadTime: 5
   shootRange: 10
   shootLayer:
     serializedVersion: 2

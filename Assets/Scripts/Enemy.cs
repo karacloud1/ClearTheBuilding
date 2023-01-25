@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     private bool canMoveRight = false;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         attack = GetComponent<Attack>();
     }

@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float turnSpeed = 15f;
     [SerializeField] private Transform[] rayStartPoints;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         playerRb = GetComponent<Rigidbody>();
     }
