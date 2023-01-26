@@ -44,12 +44,14 @@ public class PowerUp : MonoBehaviour
         if (healtPowerUp)
         {
             other.gameObject.GetComponent<Target>().GetHealth += healthAmount;
+            Destroy(gameObject);
         }
         else if (ammoPowerUp)
         {
             other.gameObject.GetComponent<Attack>().GetAmmo += ammoAmount;
+            Destroy(transform.parent.gameObject);
 
         }
-        Destroy(gameObject);
+
     }
 }
