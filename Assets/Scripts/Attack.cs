@@ -13,6 +13,8 @@ public class Attack : MonoBehaviour
     [SerializeField] private int maxAmmoCount = 5;
     private int currentAmmoCount;
     [SerializeField] private bool isPlayer = false;
+    [SerializeField] private AudioClip clip;
+    [SerializeField] private AudioSource source;
     public int GetAmmo
     {
         get
@@ -35,12 +37,13 @@ public class Attack : MonoBehaviour
             return maxAmmoCount;
         }
     }
-    public float GetCurrentFireRate {  get { return currentFireRate; } set { currentFireRate = value; } }
+    public float GetCurrentFireRate { get { return currentFireRate; } set { currentFireRate = value; } }
 
     // Start is called before the first frame update
     void Awake()
     {
         currentAmmoCount = maxAmmoCount;
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -71,6 +74,7 @@ public class Attack : MonoBehaviour
     {
         currentAmmoCount--;
         currentFireRate = fireRate;
+        source.PlayOneShot(clip);
         if (switchGun)
         {
             GameObject bulletClone = Instantiate(ammo, fireTransform1.position, fireTransform1.rotation);

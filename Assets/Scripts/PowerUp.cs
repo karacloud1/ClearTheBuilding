@@ -12,8 +12,9 @@ public class PowerUp : MonoBehaviour
     public int ammoAmount = 5;
     [Header("Transform settings")]
     [SerializeField] private float turnSpeed = -1f;
-
-    void Start()
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioClip clip;
+    void Awake()
     {
         if (healtPowerUp && ammoPowerUp)
         {
@@ -28,6 +29,7 @@ public class PowerUp : MonoBehaviour
         {
             healtPowerUp = false;
         }
+        source = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -41,6 +43,7 @@ public class PowerUp : MonoBehaviour
         {
             return;
         }
+        AudioSource.PlayClipAtPoint(clip, transform.position);
         if (healtPowerUp)
         {
             other.gameObject.GetComponent<Target>().GetHealth += healthAmount;
@@ -50,7 +53,6 @@ public class PowerUp : MonoBehaviour
         {
             other.gameObject.GetComponent<Attack>().GetAmmo += ammoAmount;
             Destroy(transform.parent.gameObject);
-
         }
 
     }

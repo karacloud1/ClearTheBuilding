@@ -8,6 +8,7 @@ public class Target : MonoBehaviour
     private int currentHealth = 2;
     [SerializeField] private GameObject deadFx;
     [SerializeField] private GameObject hitFx;
+    [SerializeField] private AudioClip clip;
     public int GetHealth
     {
         get
@@ -23,8 +24,17 @@ public class Target : MonoBehaviour
             }
         }
     }
+
+    public int GetMaxHealth
+    {
+        get
+        {
+            return maxhealth;
+        }
+
+    }
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         currentHealth = maxhealth;
     }
@@ -40,6 +50,7 @@ public class Target : MonoBehaviour
         if (bullet != null && bullet.owner != gameObject && currentHealth > 0)
         {
             currentHealth--;
+            AudioSource.PlayClipAtPoint(clip, transform.position);
             if (hitFx != null)
             {
                 Instantiate(hitFx, transform.position, Quaternion.identity);
